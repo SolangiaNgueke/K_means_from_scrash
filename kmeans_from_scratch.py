@@ -50,18 +50,17 @@ class K_Means:
     def test(self, X):
         return self.predict(X)
 
-# Charger les données depuis le fichier CSV
 fichier = r"C:\Users\Dell\Documents\MASTER MD4\Mathématique\KNN - K Means\ushape.csv"
 data = np.genfromtxt(fichier, delimiter=',')
 
-X = data[:, :2]  # Les deux premières colonnes comme les données d'entrée
-labels = data[:, -1]  # La dernière colonne comme les labels
+X = data[:, :2]  
+labels = data[:, -1] 
 
-# Créer et entraîner le modèle K-means
+
 kmeans = K_Means(k=3)
 predicted_labels = kmeans.fit(X)
 
-# Affichage des résultats
+
 plt.figure(figsize=(8, 6))
 plt.scatter(X[:, 0], X[:, 1], c=predicted_labels, cmap='viridis')
 plt.scatter(kmeans.centroids[:, 0], kmeans.centroids[:, 1], c='red', marker='*', s=200, label='Centroids')
